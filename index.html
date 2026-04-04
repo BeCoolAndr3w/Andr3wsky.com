@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: #222;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .intro p {
+      margin-bottom: 1.2em;
+    }
+
+    .divider {
+      height: 1px;
+      background: #ddd;
+      margin: 48px 0;
+    }
+
+    .gate, .instructions {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .gate p, .instructions p {
+      margin-bottom: 1em;
+    }
+
+    .gate input[type="text"] {
+      width: 100%;
+      max-width: 520px;
+      padding: 8px;
+      font-size: 0.95rem;
+    }
+
+    .gate button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      background: #2f4f6f;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .gate button:hover {
+      background: #243d57;
+    }
+
+    .status {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+
+  <script>
+    function proceed() {
+      const checkbox = document.getElementById("ack").checked;
+      const phrase = document.getElementById("phrase").value.trim();
+
+      if (
+        checkbox &&
+        phrase === "I am making a professional inquiry on behalf of Andrew"
+      ) {
+        document.getElementById("action").style.display = "none";
+        document.getElementById("status").style.display = "block";
+
+        // artificial delay before revealing contact info
+        setTimeout(() => {
+          document.getElementById("gate").style.display = "none";
+          document.getElementById("instructions").style.display = "block";
+        }, 2500);
+      } else {
+        alert("Please ensure the statement is entered exactly as shown, including capitalization.");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="intro">
+      <p><strong>Well, well, well, look who we have here.</strong></p>
+
+      <p>
+        Watcha looking for, unredacted sweatpants pictures? 
+        You’re not going to find them here, baby. But, I do admire your ambition.
+      </p>
+
+      <p>
+        Surprised to see someone beat you to this little corner of the internet?
+        Don’t be. Some of us move faster than others.
+      </p>
+
+      <p>
+        Thinking this domain might look better in your own collection?
+        Let’s talk numbers. Make me an offer that’ll make my internet connection blush.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="gate" class="gate">
+      <p>
+        This domain is not actively marketed and is not a public contact channel.
+      </p>
+
+      <p>
+        Inquiries are reviewed on a limited basis and should be made professionally and with context.
+      </p>
+
+      <p>
+        <label>
+          <input type="checkbox" id="ack">
+          I understand and agree to the above.
+        </label>
+      </p>
+
+      <p>
+        To proceed, please type the following statement exactly
+        (including capitalization):
+      </p>
+
+      <p>
+        <strong>I am making a professional inquiry on behalf of Andrew</strong>
+      </p>
+
+      <p>
+        <input
+          type="text"
+          id="phrase"
+          onpaste="return false"
+          oncopy="return false"
+          oncut="return false"
+          ondrop="return false"
+        >
+      </p>
+
+      <div id="action">
+        <button onclick="proceed()">Continue</button>
+      </div>
+
+      <p id="status" class="status" style="display:none;">
+        Please wait…
+      </p>
+    </div>
+
+    <div id="instructions" class="instructions" style="display:none;">
+      <p>
+        To make an inquiry, please follow the instructions below:
+      </p>
+
+      <ul>
+        <li>Send an email to the address below</li>
+        <li>Use the following subject line exactly:</li>
+      </ul>
+
+      <p>
+        <strong>Regarding the Andr3wsky Domain</strong>
+      </p>
+
+      <p>
+        Please include your name or organization and a brief description
+        of your interest or intended use.
+      </p>
+
+      <p>
+        Messages that do not follow these instructions will not likely receive a response.
+      </p>
+
+      <p>
+        <strong>your-random-alias@anonaddy.me</strong>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
